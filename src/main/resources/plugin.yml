@@ -1,0 +1,28 @@
+name: BestPvE
+main: pl.dans.plugins.bestpve.BestPvE
+version: 0.1
+  
+commands:
+  bStart:
+    description: Start a Balance game
+    usage: /<command>
+    permission: bpve.basic
+    permission-message: You don't have <permission>
+  bStop:
+    description: Stop a Balance game
+    usage: /<command>
+    permission: bpve.basic
+    permission-message: You don't have <permission>
+  bAdd:
+    description: Add a player to the list of players who get bonus health
+    usage: /<command> <player ign>
+    permission: bpve.basic
+    permission-message: You don't have <permission>
+  bRemove:
+    description: Remove a player to the list of players who get bonus health
+    usage: /<command> <player ign>
+    permission: bpve.basic
+    permission-message: You don't have <permission>
+  bList:
+    description: Shows Best PvE players
+    usage: /<command> 
