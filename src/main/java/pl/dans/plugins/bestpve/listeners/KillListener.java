@@ -6,14 +6,12 @@
 
 package pl.dans.plugins.bestpve.listeners;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import pl.dans.plugins.bestpve.BestPvE;
+import pl.dans.plugins.bestpve.BestPvEGame;
 
 /**
  *
@@ -21,11 +19,10 @@ import pl.dans.plugins.bestpve.BestPvE;
  */
 public class KillListener implements Listener{
     
-    private final BestPvE plugin;;
+    private final BestPvEGame bestPvEGame;
     
-    public KillListener(BestPvE plugin) {
-        this.plugin = plugin;
-        Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
+    public KillListener(BestPvEGame bestPvEGame) {
+        this.bestPvEGame = bestPvEGame;
     }
     
     @EventHandler(priority = EventPriority.NORMAL)
@@ -34,7 +31,7 @@ public class KillListener implements Listener{
         dead.setMaxHealth(20);
         Player killer = dead.getKiller();
         if (killer != null) {
-            plugin.playerGotAKill(killer.getName());
+            bestPvEGame.playerGotAKill(killer.getName());
         }
         
     }

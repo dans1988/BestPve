@@ -26,3 +26,12 @@ commands:
   bList:
     description: Shows Best PvE players
     usage: /<command> 
+    permission: bpve.showlist
+    permission-message: You don't have <permission>
+permissions:
+    bpve.basic:
+        description: Allows use of the main commands
+        default: op
+    bpve.showlist:
+        description: Allows use of the /bList command
+        default: true

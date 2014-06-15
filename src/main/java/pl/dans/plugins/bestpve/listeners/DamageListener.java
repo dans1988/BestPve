@@ -6,27 +6,23 @@
 
 package pl.dans.plugins.bestpve.listeners;
 
-import com.google.common.annotations.Beta;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.plugin.Plugin;
-import pl.dans.plugins.bestpve.BestPvE;
+import pl.dans.plugins.bestpve.BestPvEGame;
 
 /**
  *
  * @author Dans
  */
 public class DamageListener implements Listener{
-    private final BestPvE plugin;
+    private final BestPvEGame bestPvEGame;
 
-    public DamageListener(BestPvE plugin) {
-        this.plugin = plugin;
-        Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
+    public DamageListener(BestPvEGame bestPvEGame) {
+        this.bestPvEGame = bestPvEGame;
     }
     
     @EventHandler(priority = EventPriority.HIGH)
@@ -39,7 +35,7 @@ public class DamageListener implements Listener{
         
         if (e instanceof Player)  {
             Player player = (Player)e;
-            plugin.playerTookDamage(player.getName());
+            bestPvEGame.playerTookDamage(player.getName());
         }
     }
     
